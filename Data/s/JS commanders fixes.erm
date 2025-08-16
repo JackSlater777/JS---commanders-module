@@ -1,0 +1,87 @@
+ZVSE2
+
+
+!?FU(js_Hierophant_RemoveAbility);
+; Выключаем палатки 76B866 -> 76B94C
+!!UN:C7780454/1/233; E9
+!!UN:C7780455/4/225; E1000000
+
+!?FU(js_Succubus_RemoveAbility);
+; Выключаем очарование
+;!UN:C7710229/2/8427; 75A615 / 2 / EB 20
+;!UN:C7785525/2/37008; 76CC35 / 2 / 9090
+!!UN:C7785366/1/195; 76CB96 / 1 / C3
+!!UN:C7785796/1/195; 76CD44 / 1 / C3
+
+!?FU(js_Brute_EditAbility);
+; Изменяем бонус золота (оригинал - 50%)
+!!VR(jsonKey:z):S^jsCommandersMod.settings.editBruteAbility.skillValue^; Check json setting
+!!SN:T(jsonKey)/?(value:z);
+!!VR(jsOpt:y):V(value);
+!!FU|(jsOpt)<=0/(jsOpt)>100:E;
+!!UN:C7772738/1/(jsOpt); [ориг = 50%] (допустимые значения 0...127) // 769A42
+
+!?FU(js_OgreLeader_RemoveAbility);
+; Выключаем баллисты 76B94C -> 76BA43
+!!UN:C7780684/1/233; E9
+!!UN:C7780685/4/242; F2000000
+; Выключаем контроль баллисты 
+!!UN:C7789877/2/14059; 76DD35 -> 76DD6D: EB 36
+
+!?FU(js_AstralSpirit_RemoveAbility);
+; Выключаем пацифизм
+;!UN:C7710502/2/8683; 75A726 / 2 / EB 21
+!!UN:C7786301/1/195; 76CF3D / 1 / C3
+!!UN:C7786959/1/195; 76D1CF / 1 / C3
+
+
+
+!?FU(js_SetCommandersFixes);
+; Замок (174/183 Паладин)
+
+; Оплот (175/184 Знахарь)
+!!VR(jsonKey:z):S^jsCommandersMod.settings.removeHierophantAbility.value^; Check json setting
+!!SN:T(jsonKey)/?(value:z);
+!!VR(jsOpt:y):V(value);
+!!FU(js_Hierophant_RemoveAbility)&(jsOpt):P;
+
+; Башня (176/185 Храмовница)
+
+; Инферно (177/186 Суккуб)
+!!VR(jsonKey:z):S^jsCommandersMod.settings.removeSuccubusAbility.value^; Check json setting
+!!SN:T(jsonKey)/?(value:z);
+!!VR(jsOpt:y):V(value);
+!!FU(js_Hierophant_RemoveAbility)&(jsOpt):P;
+
+; Некрополис (178/187 Пожиратель Душ)
+
+; Темница (179/188 Зверь)
+!!VR(jsonKey:z):S^jsCommandersMod.settings.editBruteAbility.value^; Check json setting
+!!SN:T(jsonKey)/?(value:z);
+!!VR(jsOpt:y):V(value);
+!!FU(js_Brute_EditAbility)&(jsOpt):P;
+
+; Цитадель (180/189 Вождь Огров)
+!!VR(jsonKey:z):S^jsCommandersMod.settings.removeOgreLeaderAbility.value^; Check json setting
+!!SN:T(jsonKey)/?(value:z);
+!!VR(jsOpt:y):V(value);
+!!FU(js_OgreLeader_RemoveAbility)&(jsOpt):P;
+
+; Крепость (181/190 Шаман)
+
+; Сопряжение (182/191 Астральный Дух)
+!!VR(jsonKey:z):S^jsCommandersMod.settings.removeAstralSpiritAbility.value^; Check json setting
+!!SN:T(jsonKey)/?(value:z);
+!!VR(jsOpt:y):V(value);
+!!FU(js_AstralSpirit_RemoveAbility)&(jsOpt):P;
+
+
+
+!?FU(OnGameEnter);
+!!FU(js_SetCommandersFixes):P;
+
+*?FU(OnStartOrLoad);
+*!FU(js_SetCommandersFixes):P;
+
+
+!#FU(js_SetCommandersFixes):P;
