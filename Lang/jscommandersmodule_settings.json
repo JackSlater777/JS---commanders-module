@@ -3,23 +3,28 @@
         "settings": {
             "removeHierophantAbility": {
                 "desc": "The ability of the Hierophant to get additional First Aid Tents is removed.",
+                "incompatibleWith": "ACM, LotS, (??? probably) Knightmare Kingdom",
                 "value": true
             },
             "removeSuccubusAbility": {
                 "desc": "The ability of the Succubus to charm enemy units is removed.",
+                "incompatibleWith": "ACM, LotS, (??? probably) Knightmare Kingdom",
                 "value": true
             },
             "editBruteAbility": {
                 "desc": "Edit the value of the Brute's ability to receive gold after battle depending on the experience gained (range from 0 to 100).",
                 "value": true,
+                "incompatibleWith": "ACM, LotS, (??? probably) Knightmare Kingdom",
                 "skillValue": 10
             },
             "removeOgreLeaderAbility": {
                 "desc": "The ability of the Ogre Leader to get additional Ballistas is removed.",
+                "incompatibleWith": "ACM, LotS, (??? probably) Knightmare Kingdom",
                 "value": true
             },
             "removeAstralSpiritAbility": {
                 "desc": "The ability of the Astral Spirit to banish enemy units is removed.",
+                "incompatibleWith": "ACM, LotS, (??? probably) Knightmare Kingdom",
                 "value": true
             }
         }

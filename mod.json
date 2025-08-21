@@ -1,6 +1,6 @@
 {
 	"caption": {
-		"en_US": "JS - commanders module v.1.00",
+		"en_US": "JS - commanders module v.1.01",
 		"ru_RU": ""
 	},
 	"description": {
@@ -19,7 +19,7 @@
 		"file": "js - commanders module.png",
 		"index": 0
 	},
-	"mod_version": "1.00",
+	"mod_version": "1.01",
 	"priority": 4,
 	"compatibility": {
 		"class": "default",

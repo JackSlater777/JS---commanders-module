@@ -1,0 +1,2 @@
+Version 1.01 (21.08.2025)
+- added a key "incompatibleWith" to specify mods that are incompatible with the settings
